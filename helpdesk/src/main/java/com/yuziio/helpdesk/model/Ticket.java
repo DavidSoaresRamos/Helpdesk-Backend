@@ -1,6 +1,13 @@
-package com.yuziio.helpdesk;
+package com.yuziio.helpdesk.model;
 
+import org.springframework.data.annotation.Id;
+import org.springframework.data.mongodb.core.mapping.Document;
+
+@Document(collection = "tabela")
 public class Ticket {
+
+    @Id
+    private String id;
 
     private String nome;
     private String setor;
@@ -28,5 +35,12 @@ public class Ticket {
 
     public void setProblema(String problema) {
         this.problema = problema;
+    }
+
+    public String getId() {
+        return id;
+    }
+    public void setId(String id) {
+        this.id = id;
     }
 }
