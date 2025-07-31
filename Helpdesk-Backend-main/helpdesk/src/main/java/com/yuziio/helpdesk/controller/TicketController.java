@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.*;
 
 @RestController /* Permite a classe responder a requisições HTTP */
 @RequestMapping("/tickets") /* Define uma rota */
-@CrossOrigin(origins = "*")  /* Permite qualquer frontend se conectar com esse backend */
+@CrossOrigin(origins = "*")  /* Permite qualquer frontend se conectar com esse backend */ /** MUDAR QUANDO HOSPEDAR O BACKEND*/
 public class TicketController {
 
 
