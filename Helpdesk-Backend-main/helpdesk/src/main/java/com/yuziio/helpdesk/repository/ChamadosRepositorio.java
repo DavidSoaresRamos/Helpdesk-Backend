@@ -1,9 +1,11 @@
 package com.yuziio.helpdesk.repository;
 
-import com.yuziio.helpdesk.model.Ticket;
-import org.springframework.data.mongodb.repository.MongoRepository;
+import com.yuziio.helpdesk.model.Ticket; /* Importa o ticket que vai ser salvo no banco */
+import org.springframework.data.mongodb.repository.MongoRepository; /* Importa uma interface MongoDB do proprio Spring */
 import org.springframework.stereotype.Repository;
 
-@Repository
+@Repository /* Marca a classe como uma classe que acessa o banco de dados */
+
+/* Permite a classe herdar os metodos ja prontos do MongoRepository */
 public interface ChamadosRepositorio extends MongoRepository<Ticket, String> {
 }

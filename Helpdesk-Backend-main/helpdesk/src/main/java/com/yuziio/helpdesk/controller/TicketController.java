@@ -7,24 +7,24 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 
-@RestController /** Permite a classe responder a requisições HTTP */
-@RequestMapping("/tickets") /* */
-@CrossOrigin(origins = "*")
+@RestController /* Permite a classe responder a requisições HTTP */
+@RequestMapping("/tickets") /* Define uma rota */
+@CrossOrigin(origins = "*")  /* Permite qualquer frontend se conectar com esse backend */
 public class TicketController {
 
 
     @Autowired
-    private ChamadosRepositorio chamadosRepositorio;
+    private ChamadosRepositorio chamadosRepositorio; /* Responsavel por salvar os dados no banco de dados */
 
     @PostMapping
-    public ResponseEntity<String> criarTicket(@RequestBody Ticket ticket) {
+    public ResponseEntity<String> criarTicket(@RequestBody Ticket ticket) { /* Converte o JSON para um objeto Ticket */
         try {
-            chamadosRepositorio.save(ticket);
-            System.out.println("Ticket salvo no MongoDB: " + ticket);
-            return ResponseEntity.ok("Ticket recebido com sucesso!");
+            chamadosRepositorio.save(ticket); /* Salva o objeto Ticket que foi convertido no banco de dados */
+            System.out.println("Ticket salvo no MongoDB: " + ticket); /* log de confirmação */
+            return ResponseEntity.ok("Ticket recebido com sucesso!"); /* Resposta HTTP 200 em caso de sucesso no envio */
         } catch (Exception e) {
             e.printStackTrace();
-            return ResponseEntity.status(500).body("Erro ao salvar ticket: " + e.getMessage());
+            return ResponseEntity.status(500).body("Erro ao salvar ticket: " + e.getMessage());/* Reposta em carro de erro no envio*/
 
         }
     }

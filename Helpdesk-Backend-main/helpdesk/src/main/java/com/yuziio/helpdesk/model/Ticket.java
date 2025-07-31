@@ -3,15 +3,21 @@ package com.yuziio.helpdesk.model;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
-@Document(collection = "tabela")
+@Document(collection = "tabela") /*  @document diz que essa classe sera armazenada como um documento do MongoDB e ao lado o nome da coleção */
 public class Ticket {
 
-    @Id
-    private String id;
+    @Id  /* Define a variavel que sera usada como ID no banco de dados*/
+    private String id; /* ID do ticket */
+
+
+    /* Campos principais que serão enviados pelo front end */
 
     private String nome;
     private String setor;
     private String problema;
+
+
+    /* Getters e Setters responsaveis por acessar os atributos principais ou altera-los */
 
     public String getNome() {
         return nome;
