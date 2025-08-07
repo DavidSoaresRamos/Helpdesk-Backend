@@ -1,7 +1,7 @@
-package com.yuziio.helpdesk.controller;
+package com.yuziio.helpdesk.ticket.controller;
 
-import com.yuziio.helpdesk.model.Ticket;
-import com.yuziio.helpdesk.repository.ChamadosRepositorio;
+import com.yuziio.helpdesk.ticket.model.Ticket;
+import com.yuziio.helpdesk.ticket.repository.ChamadosRepositorio;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.*;
 @RestController /* Permite a classe responder a requisições HTTP */
 @RequestMapping("/tickets") /* Define uma rota */
 @CrossOrigin(origins = "*")  /* Permite qualquer frontend se conectar com esse backend */ /** MUDAR QUANDO HOSPEDAR O BACKEND*/
+
 public class TicketController {
 
 

@@ -1,4 +1,4 @@
-package com.yuziio.helpdesk.model;
+package com.yuziio.helpdesk.ticket.model;
 
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
