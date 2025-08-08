@@ -7,5 +7,5 @@ import org.springframework.stereotype.Repository;
 @Repository /* Marca a classe como uma classe que acessa o banco de dados */
 
 /* Permite a classe herdar os metodos ja prontos do MongoRepository */
-public interface ChamadosRepositorio extends MongoRepository<Ticket, String> {
+public interface TicketRepository extends MongoRepository<Ticket, String> {
 }

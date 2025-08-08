@@ -12,35 +12,35 @@ public class Ticket {
 
     /* Campos principais que serão enviados pelo front end */
 
-    private String nome;
-    private String setor;
-    private String problema;
+    private String name;
+    private String sector;
+    private String problem;
 
 
     /* Getters e Setters responsaveis por acessar os atributos principais ou altera-los */
 
-    public String getNome() {
-        return nome;
+    public String getName() {
+        return name;
     }
 
-    public void setNome(String nome) {
-        this.nome = nome;
+    public void setName(String name) {
+        this.name = name;
     }
 
-    public String getSetor() {
-        return setor;
+    public String getSector() {
+        return sector;
     }
 
-    public void setSetor(String setor) {
-        this.setor = setor;
+    public void setSector(String sector) {
+        this.sector = sector;
     }
 
-    public String getProblema() {
-        return problema;
+    public String getProblem() {
+        return problem;
     }
 
-    public void setProblema(String problema) {
-        this.problema = problema;
+    public void setProblem(String problem) {
+        this.problem = problem;
     }
 
     public String getId() {
