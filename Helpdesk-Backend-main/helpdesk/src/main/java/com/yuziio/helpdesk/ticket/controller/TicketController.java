@@ -6,6 +6,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
+
 
 @RestController /* Permite a classe responder a requisições HTTP */
 @RequestMapping("/tickets") /* Define uma rota */
@@ -17,8 +19,13 @@ public class TicketController {
     @Autowired
     private TicketRepository ticketRepository; /* Responsavel por salvar os dados no banco de dados */
 
+    @GetMapping
+    public List<Ticket> getTickets() {
+        return (List<Ticket>) ticketRepository.findAll();
+    }
+
     @PostMapping
-    public ResponseEntity<String> criarTicket(@RequestBody Ticket ticket) { /* Converte o JSON para um objeto Ticket */
+    public ResponseEntity<String> createTicket(@RequestBody Ticket ticket) { /* Converte o JSON para um objeto Ticket */
         try {
             ticketRepository.save(ticket); /* Salva o objeto Ticket que foi convertido no banco de dados */
             System.out.println("Ticket salvo no MongoDB: " + ticket); /* log de confirmação */
