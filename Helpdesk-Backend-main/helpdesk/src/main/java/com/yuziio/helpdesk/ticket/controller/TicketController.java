@@ -19,6 +19,7 @@ public class TicketController {
     @Autowired
     private TicketRepository ticketRepository; /* Responsavel por salvar os dados no banco de dados */
 
+
     @GetMapping
     public List<Ticket> getTickets() {
         return (List<Ticket>) ticketRepository.findAll();
