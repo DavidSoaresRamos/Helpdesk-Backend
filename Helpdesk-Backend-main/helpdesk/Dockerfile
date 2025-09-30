@@ -1,22 +1,16 @@
-# Etapa 1: build da aplicação
-FROM maven:3.9.6-eclipse-temurin-17 AS build
-WORKDIR /app
+FROM ubuntu:latest AS build
 
-# Copia todos os arquivos do projeto para dentro da imagem
+RUN apt-get update
+RUN apt-get install openjdk-17-jdk -y
 COPY . .
 
-# Usa o wrapper que já está no seu projeto (mvnw.cmd/mvnw)
-RUN ./mvnw clean package -DskipTests
+RUN apt-get install maven -y
+RUN mvn clean install
 
-# Etapa 2: imagem final só com o JAR
-FROM eclipse-temurin:24-jdk-alpine
-WORKDIR /app
+FROM openjdk:17-jdk-slim
 
-# Copia o JAR gerado na etapa anterior
-COPY --from=build /app/target/*.jar app.jar
-
-# Expõe a porta padrão do Spring Boot
 EXPOSE 8080
 
-# Comando para rodar
-ENTRYPOINT ["java", "-jar", "app.jar"]
+COPY --from=build /target/deploy_render-1.0.0.jar app.jar
+
+ENTRYPOINT [ "java", "-jar", "app.jar" ]
