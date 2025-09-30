@@ -33,7 +33,7 @@ public class TicketController {
             return ResponseEntity.ok("Ticket recebido com sucesso!"); /* Resposta HTTP 200 em caso de sucesso no envio */
         } catch (Exception e) {
             e.printStackTrace();
-            return ResponseEntity.status(500).body("Erro ao salvar ticket: " + e.getMessage());/* Reposta em carro de erro no envio*/
+            return ResponseEntity.status(500).body("Erro ao salvar ticket: " + e.getMessage());/* Reposta em caso de erro no envio*/
 
         }
     }
